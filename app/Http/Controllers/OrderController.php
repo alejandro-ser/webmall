@@ -76,6 +76,10 @@ class OrderController extends Controller
         $order->item_count = \Cart::session(auth()->id())->getContent()->count();
 
         $order->user_id = auth()->id();
+
+        if (request('payment_method') == 'paypal') {
+            $order->payment_method = 'paypal';
+        }
         
         if ($order->save()) {
             //save order items
@@ -88,19 +92,17 @@ class OrderController extends Controller
             // payment
             if (request('payment_method') == 'paypal') {
                 // redirec to paypal
-                return redirect()->route('paypal.checkout');
+                return redirect()->route('paypal.checkout', $order->id);
             }
 
             // empty cart
-            // \Cart::session(auth()->id())->clear();
+            \Cart::session(auth()->id())->clear();
 
             // send email to customer
 
             // take user to thank you page
+            return redirect()->route('home')->withMessage('Order has been placed');
         }
-
-        return "Order completed, thank you for your order";
-
     }
 
     /**

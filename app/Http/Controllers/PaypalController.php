@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
+use App\Mail\OrderPaid;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Srmklive\PayPal\Services\ExpressCheckout;
 
 class PaypalController extends Controller
 {
-    public function getExpressCheckout()
+    public function getExpressCheckout($orderId)
     {
-        $checkoutData = $this->checkoutData();
+        $checkoutData = $this->checkoutData($orderId);
 
         $provider = new ExpressCheckout();
 
@@ -18,7 +21,7 @@ class PaypalController extends Controller
         return redirect($response['paypal_link']);
     }
 
-    private function checkoutData()
+    private function checkoutData($orderId)
     {
         $cart = \Cart::session(auth()->id());
 
@@ -32,7 +35,7 @@ class PaypalController extends Controller
 
         $checkoutData = [
             'items' => $cartItems,
-            'return_url' => route('paypal.success'),
+            'return_url' => route('paypal.success', $orderId),
             'cancel_url' => route('paypal.cancel'),
             'invoice_id' => uniqid(),
             'invoice_description' => " Order description ",
@@ -47,12 +50,12 @@ class PaypalController extends Controller
         dd('Payment failed');
     }
 
-    public function getExpressChecoutSuccess(Request $request)
+    public function getExpressCheckoutSuccess(Request $request, $orderId)
     {
         $token = $request->get('token');
         $payerId = $request->get('PayerID');        
         $provider = new ExpressCheckout();
-        $checkoutData = $this->checkoutData();
+        $checkoutData = $this->checkoutData($orderId);
 
         $response = $provider->getExpressCheckoutDetails($token);
 
@@ -60,8 +63,23 @@ class PaypalController extends Controller
             // perform transaction on paypal
             $payment_status = $provider->doExpressCheckoutPayment($checkoutData, $token, $payerId);
             $status = $payment_status['PAYMENTINFO_0_PAYMENTSTATUS'];
+
+            if (in_array($status, ['Completed','Processed'])) {
+                $order = Order::find($orderId);
+                $order->is_paid = 1;
+                
+                if ($order->save()) {
+                    // empty cart
+                    \Cart::session(auth()->id())->clear();
+                    
+                    // send mail
+                    Mail::to($order->user->email)->send(new OrderPaid($order));
+
+                    return redirect()->route('home')->withMessage('Payment successfull!');
+                }
+            }
         }
 
-        dd('Payment successfull');
+        return redirect()->route('home')->withError('Payment unsuccessfull! something went wrong!');
     }
 }
