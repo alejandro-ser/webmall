@@ -26,8 +26,8 @@ Here is your receipt
 
 Total : {{$order->grand_total}}
 
-@component('mail::button', ['url' => ''])
-Button Text
+@component('mail::button', ['url' => '/'])
+Shop
 @endcomponent
 
 Thanks,<br>
