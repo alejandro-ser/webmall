@@ -56,7 +56,7 @@ class ShopController extends Controller
 
         Mail::to($admins)->send(new ShopActivationRequest($shop));
 
-        return redirect()->route('home')->withMessage('Create shop request send');
+        return redirect()->route('home')->withMessage('Create shop request sent, we will notify you by email when is activated');
     }
 
     /**
@@ -67,7 +67,7 @@ class ShopController extends Controller
      */
     public function show(Shop $shop)
     {
-        //
+        dd($shop->owner->name, 'welcome to your shop ', $shop->name);
     }
 
     /**

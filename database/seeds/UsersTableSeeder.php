@@ -21,15 +21,15 @@ class UsersTableSeeder extends Seeder
             array (
                 'avatar' => 'users/default.png',
                 'created_at' => '2020-05-02 14:22:21',
-                'email' => 'customer@correo.dev',
+                'email' => 'seller@correo.dev',
                 'email_verified_at' => NULL,
                 'id' => 1,
-                'name' => 'Customer',
+                'name' => 'Seller',
                 'password' => '$2y$10$eYPeJLUaXgsPFr12V8r9I.iO.eGYKGs.ZaElqSDPmse7Wina1etbi',
                 'remember_token' => NULL,
-                'role_id' => 2,
+                'role_id' => 3,
                 'settings' => '{"locale":"en"}',
-                'updated_at' => '2020-05-04 12:09:21',
+                'updated_at' => '2020-05-04 18:46:33',
             ),
             1 => 
             array (
@@ -44,6 +44,20 @@ class UsersTableSeeder extends Seeder
                 'role_id' => 1,
                 'settings' => '{"locale":"en"}',
                 'updated_at' => '2020-05-04 09:39:46',
+            ),
+            2 => 
+            array (
+                'avatar' => 'users/default.png',
+                'created_at' => '2020-05-04 18:52:24',
+                'email' => 'customer@correo.dev',
+                'email_verified_at' => NULL,
+                'id' => 3,
+                'name' => 'Customer',
+                'password' => '$2y$10$ZA5.YtMORRAIyPuf61DC3.6RlXqCczkyeOKbbMhzDjObc8/pClIX6',
+                'remember_token' => NULL,
+                'role_id' => 2,
+                'settings' => NULL,
+                'updated_at' => '2020-05-04 18:52:24',
             ),
         ));
         
