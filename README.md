@@ -18,5 +18,12 @@ Repositorio de respaldo para el tutorial **[Multi Seller Ecommerce](https://www.
 ### Paquetes usados
 
 - [laravel-paypal](https://github.com/srmklive/laravel-paypal)
+    __composer require srmklive/paypal:~1.0__
+
+- [voyager](https://voyager-docs.devdojo.com/getting-started/installation)
+    __composer require tcg/voyager__
+
+- [iseed](https://github.com/orangehill/iseed)
+    __composer require orangehill/iseed__
 
 [Documentación Laravel 7](https://laravel.com/docs)
