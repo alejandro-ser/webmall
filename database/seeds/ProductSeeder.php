@@ -1,5 +1,6 @@
 <?php
 
+use App\Product;
 use Illuminate\Database\Seeder;
 
 class ProductSeeder extends Seeder
@@ -11,6 +12,7 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Product::class, 50)->create();
+        factory(Product::class, 25)->create(['shop_id' => 1]);
+        factory(Product::class, 25)->create(['shop_id' => 2]);
     }
 }
