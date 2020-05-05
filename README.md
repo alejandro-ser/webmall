@@ -1,15 +1,12 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="300"></p>
-
 ## Múltiple vendedor Ecommerce Laravel 7
 
 Repositorio de respaldo para el tutorial **[Multi Seller Ecommerce](https://www.youtube.com/playlist?list=PLzz9vf6075V2xMDgFzAE_j2tug2Vwx9u-)** del canal de youtube de __[WebDevMatics](https://www.youtube.com/channel/UCjpCwTGrMRuTi4FcrCYbkSQ)__
 
-### Requisitos
+## Instalar y configurar el proyecto
 
-- PHP >= 7.2.5
-- [Composer](https://getcomposer.org)
-
-### Instalar y configurar el proyecto
+- __Requisitos:__  
+    PHP >= 7.2.5  
+    [Composer](https://getcomposer.org)
 
 - Clonar repositorio e ingresar al directorio principal  
 `cd webmall`
@@ -48,16 +45,7 @@ _DB_PASSWORD=_**_Tus_credenciales_van_aquí_**
 
 ## Configuraciones adicionales para probar la tienda
 
-### Probar compras a traves de **__Paypal__** [**[API Paypal](https://developer.paypal.com)**]
-
-- Generar llaves de la API de Paypal y agregarlas al archivo .ENV usando las siguientes lineas:  
-_#PayPal Setting & API Credentials - sandbox_  
-_PAYPAL_SANDBOX_API_USERNAME=_**_Tus_llaves_van_aquí_**  
-_PAYPAL_SANDBOX_API_PASSWORD=_**_Tus_llaves_van_aquí_**  
-_PAYPAL_SANDBOX_API_SECRET=_**_Tus_llaves_van_aquí_**  
-_PAYPAL_SANDBOX_API_CERTIFICATE=_
-
-### Probar notificación de pagos [**[Mailtrap](https://mailtrap.io)**]
+### Probar notificaciones por correo [**[Mailtrap](https://mailtrap.io)**]
 
 - Generar credenciales de SMTP en Mailtrap y agregarlas al archivo .ENV usando las siguientes lineas:  
 _MAIL_MAILER=smtp_  
@@ -69,6 +57,15 @@ _MAIL_ENCRYPTION=null_
 _MAIL_FROM_ADDRESS=webmall@webmall.dev_  
 _MAIL_FROM_NAME=Webmall_
 
+### Probar compras a traves de **__Paypal__** [**[API Paypal](https://developer.paypal.com)**]
+
+- Generar llaves de la API de Paypal y agregarlas al archivo .ENV usando las siguientes lineas:  
+_#PayPal Setting & API Credentials - sandbox_  
+_PAYPAL_SANDBOX_API_USERNAME=_**_Tus_llaves_van_aquí_**  
+_PAYPAL_SANDBOX_API_PASSWORD=_**_Tus_llaves_van_aquí_**  
+_PAYPAL_SANDBOX_API_SECRET=_**_Tus_llaves_van_aquí_**  
+_PAYPAL_SANDBOX_API_CERTIFICATE=_
+
 ## Paquetes usados
 
 - [**[laravel-paypal](https://github.com/srmklive/laravel-paypal)**] Pagos a traves de Paypal
@@ -77,4 +74,17 @@ _MAIL_FROM_NAME=Webmall_
 
 - [**[iseed](https://github.com/orangehill/iseed)**] Generar backup inverso para las seeds de la base de datos
 
-### [Licencia MIT](https://github.com/alejandro-ser/webmall/blob/master/LICENSE)
+## Imagenes demo
+
+### Tienda
+![Admin](/public/img/webmall-customer.png)
+### Carro
+![Admin](/public/img/webmall-cart.png)
+### Vendedor
+![Admin](/public/img/webmall-seller.png)
+### Admistrador
+![Admin](/public/img/webmall-admin.png)
+
+## Licencia
+
+[Licencia MIT](https://github.com/alejandro-ser/webmall/blob/master/LICENSE)
