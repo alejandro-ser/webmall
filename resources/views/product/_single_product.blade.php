@@ -26,7 +26,7 @@
             </div>
             <h4><a href="product-details.html">{{$product->name}}</a></h4>
             <span>{{$product->description}}</span>
-            <h5>$ {{$product->price}}</h5>
+            <h5>${{$product->price}}</h5>
         </div>
     </div>
 </div>

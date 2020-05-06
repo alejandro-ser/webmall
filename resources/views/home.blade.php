@@ -155,7 +155,7 @@
     </div>
 </div>
 
-<div class="electronic-banner-area">
+{{-- <div class="electronic-banner-area">
     <div class="custom-row-2">
         <div class="custom-col-style-2 electronic-banner-col-3 mb-30">
             <div class="electronic-banner-wrapper">
@@ -191,9 +191,9 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
-<div class="electro-product-wrapper wrapper-padding pt-95 pb-45">
+<div class="electro-product-wrapper wrapper-padding pt-10 pb-45">
     <div class="container-fluid">
         <div class="section-title-4 text-center mb-40">
             <h2>Top Products</h2>
