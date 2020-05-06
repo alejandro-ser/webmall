@@ -45,8 +45,10 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="coupon-all">
                             <div class="coupon">
-                                <input id="coupon_code" class="input-text" name="coupon_code" value="" placeholder="Coupon code" type="text">
-                                <input class="button" name="apply_coupon" value="Apply coupon" type="submit">
+                                <form action="{{route('cart.coupon')}}" method="get">
+                                    <input id="coupon_code" class="input-text" name="coupon_code" placeholder="Coupon code" type="text">
+                                    <input class="button" name="apply_coupon" value="Apply coupon" type="submit">
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -56,7 +58,7 @@
                         <div class="cart-page-total">
                             <h2>Cart totals</h2>
                             <ul>
-                                <li>Subtotal<span>100.00</span></li>
+                                <li>Subtotal<span>{{ Cart::session(auth()->id())->getSubTotal() }}</span></li>
                                 <li>Total<span>{{ Cart::session(auth()->id())->getTotal() }}</span></li>
                             </ul>
                             <a href="{{ route('cart.checkout') }}">Proceed to checkout</a>
