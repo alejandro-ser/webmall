@@ -6,9 +6,11 @@ Repositorio de respaldo para el tutorial **[Multi Seller Ecommerce](https://www.
 
 - __Requisitos:__  
     PHP >= 7.2.5  
-    [Composer](https://getcomposer.org)
+    [Composer](https://getcomposer.org)  
+    [NodeJS](https://nodejs.org)
 
 - Clonar repositorio e ingresar al directorio principal  
+`git clone https://github.com/alejandro-ser/webmall.git`  
 `cd webmall`
 - Crear una base de datos en MySQL
 - Copiar ó renombrar el archivo __*.env.example*__ a __*.env*__  
@@ -68,11 +70,17 @@ _PAYPAL_SANDBOX_API_CERTIFICATE=_
 
 ## Paquetes usados
 
+- [**[laravelshoppingcart](https://github.com/darryldecode/laravelshoppingcart)**] Manejo carro de compras
+
 - [**[laravel-paypal](https://github.com/srmklive/laravel-paypal)**] Pagos a traves de Paypal
 
 - [**[voyager](https://voyager-docs.devdojo.com/getting-started/installation)**] Panel de administración
 
 - [**[iseed](https://github.com/orangehill/iseed)**] Generar backup inverso para las seeds de la base de datos
+
+## Plantilla
+
+- [Ezone Template](https://themehunt.com/item/1527339-ezone-free-multipurpose-ecommerce-bootstrap4-template)
 
 ## Imagenes demo
 
@@ -81,7 +89,8 @@ _PAYPAL_SANDBOX_API_CERTIFICATE=_
 ### Carro
 ![Admin](/public/img/webmall-cart.png)
 ### Vendedor
-![Admin](/public/img/webmall-seller.png)
+![Admin](/public/img/webmall-seller-shop.png)
+![Admin](/public/img/webmall-seller-products.png)
 ### Admistrador
 ![Admin](/public/img/webmall-admin.png)
 
