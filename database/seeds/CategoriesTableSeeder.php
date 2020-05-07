@@ -19,23 +19,53 @@ class CategoriesTableSeeder extends Seeder
         \DB::table('categories')->insert(array (
             0 => 
             array (
-                'id' => 1,
-                'parent_id' => NULL,
+                'created_at' => '2020-05-06 10:12:14',
+                'id' => 3,
+                'name' => 'Men',
                 'order' => 1,
-                'name' => 'Category 1',
-                'slug' => 'category-1',
-                'created_at' => '2020-05-03 17:44:40',
-                'updated_at' => '2020-05-03 17:44:40',
+                'parent_id' => NULL,
+                'slug' => 'men',
+                'updated_at' => '2020-05-06 10:12:31',
             ),
             1 => 
             array (
-                'id' => 2,
-                'parent_id' => NULL,
+                'created_at' => '2020-05-06 10:13:34',
+                'id' => 4,
+                'name' => 'Watch',
                 'order' => 1,
-                'name' => 'Category 2',
-                'slug' => 'category-2',
-                'created_at' => '2020-05-03 17:44:40',
-                'updated_at' => '2020-05-03 17:44:40',
+                'parent_id' => 3,
+                'slug' => 'watch',
+                'updated_at' => '2020-05-06 10:13:34',
+            ),
+            2 => 
+            array (
+                'created_at' => '2020-05-06 10:13:50',
+                'id' => 5,
+                'name' => 'Women',
+                'order' => 1,
+                'parent_id' => NULL,
+                'slug' => 'women',
+                'updated_at' => '2020-05-06 10:13:50',
+            ),
+            3 => 
+            array (
+                'created_at' => '2020-05-06 10:15:06',
+                'id' => 6,
+                'name' => 'Cosmetics',
+                'order' => 1,
+                'parent_id' => 5,
+                'slug' => 'cosmetics',
+                'updated_at' => '2020-05-06 10:15:06',
+            ),
+            4 => 
+            array (
+                'created_at' => '2020-05-06 10:15:53',
+                'id' => 7,
+                'name' => 'Lipsticks',
+                'order' => 1,
+                'parent_id' => 6,
+                'slug' => 'lipsticks',
+                'updated_at' => '2020-05-06 10:15:53',
             ),
         ));
         
