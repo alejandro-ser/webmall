@@ -1,13 +1,10 @@
 <!doctype html>
-<html class="no-js" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class="no-js" lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>WebMall</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
@@ -34,31 +31,36 @@
         <![endif]-->
     <!-- header start -->
     <header class="sticky-top bg-white">
-        <div class="header-bottom ptb-20 clearfix">
+        {{-- <div class="header-top-wrapper-2 border-bottom-2">
+            <div class="header-info-wrapper pl-200 pr-200">
+                <div class="header-contact-info">
+                    <ul>
+                        <li><i class="pe-7s-call"></i> +011 2231 4545</li>
+                        <li><i class="pe-7s-mail"></i> <a href="#">company@domail.info</a></li>
+                    </ul>
+                </div>
+                <div class="electronics-login-register">
+                    <ul>
+                        <li><a href="#"><i class="pe-7s-users"></i>My Account</a></li>
+                        <li><a data-toggle="modal" data-target="#exampleCompare" href="#"><i class="pe-7s-repeat"></i>Compare</a></li>
+                        <li><a href="wishlist.html"><i class="pe-7s-like"></i>Wishlist</a></li>
+                        <li><a href="#"><i class="pe-7s-flag"></i>US</a></li>
+                        <li><a class="border-none" href="#"><span>$</span>USD</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div> --}}
+        <div class="header-bottom pt-20 pb-20 clearfix">
             <div class="header-bottom-wrapper pr-200 pl-200">
                 <div class="logo-3">
                     <a href="{{route('home')}}">
-                        <img src="{{asset('assets/img/logo/logo-3.png')}}" alt="">
+                        <img src="/assets/img/logo/logo-3.png" alt="">
                     </a>
                 </div>
-                <div class="categories-search-wrapper categories-search-wrapper2">
-                    {{-- <div class="all-categories">
-                        <div class="select-wrapper">
-                            <select class="select">
-                                <option value="">All Categories</option>
-                                <option value="">Smartphones </option>
-                                <option value="">Computers</option>
-                                <option value="">Laptops </option>
-                                <option value="">Camerea </option>
-                                <option value="">Watches</option>
-                                <option value="">Lights </option>
-                                <option value="">Air conditioner</option>
-                            </select>
-                        </div>
-                    </div> --}}
+                <div class="categories-search-wrapper">
                     <div class="categories-wrapper">
                         <form action="{{route('product.search')}}" method="GET">
-                            <input type="text" name="query" placeholder="Enter your key word">
+                            <input type="text" name="query" placeholder="Enter Your key word">
                             <button type="submit"> Search </button>
                         </form>
                     </div>
@@ -69,168 +71,24 @@
                             <a href="{{route('login')}}"><i class="pe-7s-users"></i></a>
                         </div>
                         <div class="same-style-text">
-                            @auth
-                                <a href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                                    Close <br> Session
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                            @else
-                                <a href="{{ route('login') }}">My<br>Account</a>
-                            @endauth
+                            <a href="{{route('login')}}">My <br> Account</a>
                         </div>
                     </div>
                     <div class="categories-cart same-style">
                         <div class="same-style-icon">
-                            <a href="{{ route('shops.create') }}"><i class="pe-7s-shopbag"></i></a>
-                        </div>
-                        <div class="same-style-text">
-                            @auth
-                                <a href="{{ url('/admin') }}">My<br>Shop</a>
-                            @else
-                                <a href="{{ route('shops.create') }}">Open<br>Your Shop</a>
-                            @endauth
-                        </div>
-                    </div>
-                    <div class="header-cart-3 same-style">
-                        <div class="same-style-icon">
                             <a href="{{ route('cart.index') }}"><i class="pe-7s-cart"></i></a>
                         </div>
                         <div class="same-style-text">
-                            @auth
-                                <a href="{{ route('cart.index') }}">
-                                    My Cart<br> {{ Cart::session(auth()->id())->getContent()->count() }} Item
-                                </a>
-                                <ul class="cart-dropdown">
-                                    <li class="single-product-cart">
-                                        <div class="cart-img">
-                                            <a href="#"><img src="assets/img/cart/1.jpg" alt=""></a>
-                                        </div>
-                                        <div class="cart-title">
-                                            <h5><a href="#"> Bits Headphone</a></h5>
-                                            <h6><a href="#">Black</a></h6>
-                                            <span>$80.00 x 1</span>
-                                        </div>
-                                        <div class="cart-delete">
-                                            <a href="#"><i class="ti-trash"></i></a>
-                                        </div>
-                                    </li>
-                                    <li class="single-product-cart">
-                                        <div class="cart-img">
-                                            <a href="#"><img src="assets/img/cart/2.jpg" alt=""></a>
-                                        </div>
-                                        <div class="cart-title">
-                                            <h5><a href="#"> Bits Headphone</a></h5>
-                                            <h6><a href="#">Black</a></h6>
-                                            <span>$80.00 x 1</span>
-                                        </div>
-                                        <div class="cart-delete">
-                                            <a href="#"><i class="ti-trash"></i></a>
-                                        </div>
-                                    </li>
-                                    <li class="single-product-cart">
-                                        <div class="cart-img">
-                                            <a href="#"><img src="assets/img/cart/3.jpg" alt=""></a>
-                                        </div>
-                                        <div class="cart-title">
-                                            <h5><a href="#"> Bits Headphone</a></h5>
-                                            <h6><a href="#">Black</a></h6>
-                                            <span>$80.00 x 1</span>
-                                        </div>
-                                        <div class="cart-delete">
-                                            <a href="#"><i class="ti-trash"></i></a>
-                                        </div>
-                                    </li>
-                                    <li class="cart-space">
-                                        <div class="cart-sub">
-                                            <h4>Subtotal</h4>
-                                        </div>
-                                        <div class="cart-price">
-                                            <h4>$240.00</h4>
-                                        </div>
-                                    </li>
-                                    <li class="cart-btn-wrapper">
-                                        <a class="cart-btn btn-hover" href="#">view cart</a>
-                                        <a class="cart-btn btn-hover" href="#">checkout</a>
-                                    </li>
-                                </ul>
-                            @else
-                                <a href="{{ route('cart.index') }}">
-                                    My Cart<br> 0 Item
-                                </a>
-                            @endauth
+                            <a href="{{ route('cart.index') }}">My Cart<br>
+                                @auth
+                                    {{ Cart::session(auth()->id())->getContent()->count() }}
+                                @else
+                                    0
+                                @endauth
+                                 Item</a>
                         </div>
                     </div>
                 </div>
-                {{-- <div class="mobile-menu-area mobile-menu-none-block electro-2-menu">
-                    <div class="mobile-menu">
-                        <nav id="mobile-menu-active">
-                            <ul class="menu-overflow">
-                                <li><a href="#">HOME</a>
-                                    <ul>
-                                        <li><a href="index.html">Fashion</a></li>
-                                        <li><a href="index-fashion-2.html">Fashion style 2</a></li>
-                                        <li><a href="index-fruits.html">Fruits</a></li>
-                                        <li><a href="index-book.html">book</a></li>
-                                        <li><a href="index-electronics.html">electronics</a></li>
-                                        <li><a href="index-electronics-2.html">electronics style 2</a></li>
-                                        <li><a href="index-food.html">food & drink</a></li>
-                                        <li><a href="index-furniture.html">furniture</a></li>
-                                        <li><a href="index-handicraft.html">handicraft</a></li>
-                                        <li><a href="index-smart-watch.html">smart watch</a></li>
-                                        <li><a href="index-sports.html">sports</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">pages</a>
-                                    <ul>
-                                        <li><a href="about-us.html">about us</a></li>
-                                        <li><a href="menu-list.html">menu list</a></li>
-                                        <li><a href="login.html">login</a></li>
-                                        <li><a href="register.html">register</a></li>
-                                        <li><a href="cart.html">cart page</a></li>
-                                        <li><a href="checkout.html">checkout</a></li>
-                                        <li><a href="wishlist.html">wishlist</a></li>
-                                        <li><a href="contact.html">contact</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">shop</a>
-                                    <ul>
-                                        <li><a href="shop-grid-2-col.html"> grid 2 column</a></li>
-                                        <li><a href="shop-grid-3-col.html"> grid 3 column</a></li>
-                                        <li><a href="shop.html">grid 4 column</a></li>
-                                        <li><a href="shop-grid-box.html">grid box style</a></li>
-                                        <li><a href="shop-list-1-col.html"> list 1 column</a></li>
-                                        <li><a href="shop-list-2-col.html">list 2 column</a></li>
-                                        <li><a href="shop-list-box.html">list box style</a></li>
-                                        <li><a href="product-details.html">tab style 1</a></li>
-                                        <li><a href="product-details-2.html">tab style 2</a></li>
-                                        <li><a href="product-details-3.html"> tab style 3</a></li>
-                                        <li><a href="product-details-4.html">sticky style</a></li>
-                                        <li><a href="product-details-5.html">sticky style 2</a></li>
-                                        <li><a href="product-details-6.html">gallery style</a></li>
-                                        <li><a href="product-details-7.html">gallery style 2</a></li>
-                                        <li><a href="product-details-8.html">fixed image style</a></li>
-                                        <li><a href="product-details-9.html">fixed image style 2</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">BLOG</a>
-                                    <ul>
-                                        <li><a href="blog.html">blog 3 colunm</a></li>
-                                        <li><a href="blog-2-col.html">blog 2 colunm</a></li>
-                                        <li><a href="blog-sidebar.html">blog sidebar</a></li>
-                                        <li><a href="blog-details.html">blog details</a></li>
-                                        <li><a href="blog-details-sidebar.html">blog details 2</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="contact.html"> Contact  </a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div> --}}
             </div>
         </div>
     </header>
@@ -261,46 +119,6 @@
     @yield('content')    
     
     <footer class="footer-area">
-        <div class="footer-middle black-bg-2 pt-35 pb-40">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-4">
-                        <div class="footer-services-wrapper mb-30">
-                            <div class="footer-services-icon">
-                                <i class="pe-7s-car"></i>
-                            </div>
-                            <div class="footer-services-content">
-                                <h3>Free Shipping</h3>
-                                <p>Free Shipping on Bangladesh</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4">
-                        <div class="footer-services-wrapper mb-30">
-                            <div class="footer-services-icon">
-                                <i class="pe-7s-shield"></i>
-                            </div>
-                            <div class="footer-services-content">
-                                <h3>Money Guarentee</h3>
-                                <p>Free Shipping on Bangladesh</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4">
-                        <div class="footer-services-wrapper mb-30">
-                            <div class="footer-services-icon">
-                                <i class="pe-7s-headphones"></i>
-                            </div>
-                            <div class="footer-services-content">
-                                <h3>Online Support</h3>
-                                <p>Free Shipping on Bangladesh</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="footer-top-3 black-bg pt-75 pb-25">
             <div class="container">
                 <div class="row">
@@ -383,7 +201,45 @@
                 </div>
             </div>
         </div>
-        
+        <div class="footer-middle black-bg-2 pt-35 pb-40">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4">
+                        <div class="footer-services-wrapper mb-30">
+                            <div class="footer-services-icon">
+                                <i class="pe-7s-car"></i>
+                            </div>
+                            <div class="footer-services-content">
+                                <h3>Free Shipping</h3>
+                                <p>Free Shipping on Bangladesh</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        <div class="footer-services-wrapper mb-30">
+                            <div class="footer-services-icon">
+                                <i class="pe-7s-shield"></i>
+                            </div>
+                            <div class="footer-services-content">
+                                <h3>Money Guarentee</h3>
+                                <p>Free Shipping on Bangladesh</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        <div class="footer-services-wrapper mb-30">
+                            <div class="footer-services-icon">
+                                <i class="pe-7s-headphones"></i>
+                            </div>
+                            <div class="footer-services-content">
+                                <h3>Online Support</h3>
+                                <p>Free Shipping on Bangladesh</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="footer-bottom  black-bg pt-25 pb-30">
             <div class="container">
                 <div class="row">
@@ -410,9 +266,101 @@
             </div>
         </div>
     </footer>
-
     <!-- modal -->
-    {{-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade" id="exampleCompare" tabindex="-1" role="dialog" aria-hidden="true">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span class="pe-7s-close" aria-hidden="true"></span>
+        </button>
+        <div class="modal-dialog modal-compare-width" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form action="#">
+                        <div class="table-content compare-style table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>
+                                            <a href="#">Remove <span>x</span></a>
+                                            <img src="/assets/img/cart/4.jpg" alt="">
+                                            <p>Blush Sequin Top </p>
+                                            <span>$75.99</span>
+                                            <a class="compare-btn" href="#">Add to cart</a>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="compare-title">
+                                            <h4>Description </h4></td>
+                                        <td class="compare-dec compare-common">
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has beenin the stand ard dummy text ever since the 1500s, when an unknown printer took a galley</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="compare-title">
+                                            <h4>Sku </h4></td>
+                                        <td class="product-none compare-common">
+                                            <p>-</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="compare-title">
+                                            <h4>Availability  </h4></td>
+                                        <td class="compare-stock compare-common">
+                                            <p>In stock</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="compare-title">
+                                            <h4>Weight   </h4></td>
+                                        <td class="compare-none compare-common">
+                                            <p>-</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="compare-title">
+                                            <h4>Dimensions   </h4></td>
+                                        <td class="compare-stock compare-common">
+                                            <p>N/A</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="compare-title">
+                                            <h4>brand   </h4></td>
+                                        <td class="compare-brand compare-common">
+                                            <p>HasTech</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="compare-title">
+                                            <h4>color   </h4></td>
+                                        <td class="compare-color compare-common">
+                                            <p>Grey, Light Yellow, Green, Blue, Purple, Black </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="compare-title">
+                                            <h4>size    </h4></td>
+                                        <td class="compare-size compare-common">
+                                            <p>XS, S, M, L, XL, XXL </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="compare-title"></td>
+                                        <td class="compare-price compare-common">
+                                            <p>$75.99 </p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span class="pe-7s-close" aria-hidden="true"></span>
         </button>
@@ -500,7 +448,7 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 
 
 

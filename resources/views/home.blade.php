@@ -55,14 +55,14 @@
         <div class="menu-slider-wrapper">
             <div class="slider-area">
                 <div class="slider-active owl-carousel">
-                    <div class="single-slider single-slider-hm3 bg-img pt-170 pb-173" style="background-image: url(img/default-product.jpg)">
+                    <div class="single-slider single-slider-hm3 bg-img pt-170 pb-173" style="background-image: url(img/default-product-1.jpg)">
                         <div class="slider-animation slider-content-style-3 fadeinup-animated">
                             <h2 class="animated text-light">Invention of <br>design platform</h2>
                             <h4 class="animated text-light">Best Product With warranty </h4>
                             <a class="electro-slider-btn btn-hover" href="product-details.html">buy now</a>
                         </div>
                     </div>
-                    <div class="single-slider single-slider-hm3 bg-img pt-170 pb-173" style="background-image: url(img/default-product.jpg)">
+                    <div class="single-slider single-slider-hm3 bg-img pt-170 pb-173" style="background-image: url(img/default-product-3.jpg)">
                         <div class="slider-animation slider-content-style-3 fadeinup-animated">
                             <h2 class="animated text-light">Invention of <br>design platform</h2>
                             <h4 class="animated text-light">Best Product With warranty </h4>

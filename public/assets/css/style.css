@@ -2212,6 +2212,11 @@ a.banner-book-style-btn:hover {
 .trace-cart-wrapper {
     display: flex;
 }
+.same-style-text:hover .cart-dropdown {
+    opacity: 1;
+    top: 100%;
+    visibility: visible;
+}
 .categories-search-wrapper {
     background-color: #bcf2ff;
     padding: 10px 30px 10px 15px;
@@ -3453,10 +3458,10 @@ a.banner-book-style-btn:hover {
 /* 5.1 Header style of electronic 2 */
 
 .header-cart-3 {
-    margin-top: 14px;
+    *margin-top: 14px;
     position: relative;
 }
-.header-cart-3 > a i {
+/* .header-cart-3 > a i {
     color: #070b21;
     font-size: 20px;
     margin-right: 4px;
@@ -3481,7 +3486,7 @@ a.banner-book-style-btn:hover {
     margin-left: 3px;
     text-align: center;
     width: 20px;
-}
+} */
 .header-cart-3:hover .cart-dropdown {
     opacity: 1;
     top: 100%;
