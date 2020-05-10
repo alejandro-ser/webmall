@@ -66,7 +66,19 @@
                 <div class="trace-cart-wrapper">
                     <div class="trace same-style">
                         <div class="same-style-icon">
-                            <a href="{{route('login')}}"><i class="pe-7s-users"></i></a>
+                            @auth
+                                <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                    <i class="pe-7s-users"></i>
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            @else
+                                <a href="{{route('login')}}"><i class="pe-7s-users"></i></a>
+                            @endauth
                         </div>
                         <div class="same-style-text">
                             @auth
@@ -86,11 +98,23 @@
                     </div>
                     <div class="categories-cart same-style">
                         <div class="same-style-icon">
-                            <a href="{{ route('shops.create') }}"><i class="pe-7s-shopbag"></i></a>
+                            @auth
+                                @if (auth()->user()->hasRole('seller'))
+                                    <a href="{{ url('/admin') }}"><i class="pe-7s-shopbag"></i></a>
+                                @else
+                                    <a href="{{ route('shops.create') }}"><i class="pe-7s-shopbag"></i></a>
+                                @endif
+                            @else
+                                <a href="{{ route('shops.create') }}"><i class="pe-7s-shopbag"></i></a>
+                            @endauth
                         </div>
                         <div class="same-style-text">
                             @auth
-                                <a href="{{ url('/admin') }}">My<br>Shop</a>
+                                @if (auth()->user()->hasRole('seller'))
+                                    <a href="{{ url('/admin') }}">My<br>Shop</a>
+                                @else
+                                    <a href="{{ route('shops.create') }}">Open<br>Your Shop</a>
+                                @endif
                             @else
                                 <a href="{{ route('shops.create') }}">Open<br>Your Shop</a>
                             @endauth
@@ -154,8 +178,8 @@
                                         </div>
                                     </li>
                                     <li class="cart-btn-wrapper">
-                                        <a class="cart-btn btn-hover" href="#">view cart</a>
-                                        <a class="cart-btn btn-hover" href="#">checkout</a>
+                                        <a class="cart-btn btn-hover" href="{{route('cart.index')}}">View cart</a>
+                                        <a class="cart-btn btn-hover" href="{{route('cart.checkout')}}">Checkout</a>
                                     </li>
                                 </ul>
                             @else

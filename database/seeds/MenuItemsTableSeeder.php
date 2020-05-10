@@ -293,7 +293,7 @@ class MenuItemsTableSeeder extends Seeder
             array (
                 'color' => NULL,
                 'created_at' => '2020-05-06 19:13:15',
-                'icon_class' => NULL,
+                'icon_class' => 'voyager-ticket',
                 'id' => 18,
                 'menu_id' => 1,
                 'order' => 18,

@@ -43,13 +43,13 @@
                                         @endif
                                     </div>
                                     <div class="login-toggle-btn">
-                                    <button type="submit" class="default-btn floatright">
-                                        {{ __('Login') }}
-                                    </button>
-                                    @if (Route::has('register'))
-                                        <a class="default-btn floatright" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                    @endif
-                                </div>
+                                        <button type="submit" class="default-btn floatright">
+                                            {{ __('Login') }}
+                                        </button>
+                                        @if (Route::has('register'))
+                                            <a class="default-btn floatright" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                        @endif
+                                    </div>
                                 </div>
                             </form>
                         </div>
