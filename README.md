@@ -85,13 +85,18 @@ _PAYPAL_SANDBOX_API_CERTIFICATE=_
 ## Imagenes demo
 
 ### Tienda
-![Admin](/public/img/webmall-customer.png)
+![Shop](/public/img/webmall-customer.png)
 ### Carro
-![Admin](/public/img/webmall-cart.png)
-### Vendedor
-![Admin](/public/img/webmall-seller-shop.png)
-![Admin](/public/img/webmall-seller-products.png)
-### Admistrador
+![Cart](/public/img/webmall-cart.png)
+### Checkout
+![Checkout](/public/img/webmall-checkout.png)
+### Create shop
+![Create shop](/public/img/webmall-shop.png)
+### [**Admin**] Vendedor
+![Seller](/public/img/webmall-seller-shop.png)  
+### [**Admin**] Products
+![Seller Products](/public/img/webmall-seller-products.png)
+### [**Admin**] Admistrador
 ![Admin](/public/img/webmall-admin.png)
 
 ## Licencia

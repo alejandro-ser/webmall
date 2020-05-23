@@ -25,7 +25,7 @@ class CartUpdateForm extends Component
             )
         ]);
 
-        $this->emit('cartUpdated');
+        $this->emit('cartUpdated', 'message', 'Cart updated');
     }
 
     public function render()

@@ -457,10 +457,20 @@
     margin-bottom: 0px;
     padding-bottom: 0px;
 }
+.single-product-cart img {
+    object-fit: cover;
+    width: 85px;
+    height: 80px;
+}
 .cart-delete {
     display: flex;
     flex-grow: 100;
     justify-content: flex-end;
+    flex-direction: column;
+    align-items: end;
+}
+.cart-delete input {
+    width: 50px;
 }
 .cart-title {
     margin: 19px 0 0 15px;
@@ -6692,6 +6702,11 @@ h1.cart-heading {
 }
 .table-content table td.product-thumbnail {
     width: 130px;
+}
+.table-content table td.product-thumbnail img {
+    object-fit: cover;
+    width: 80px;
+    height: 100px;
 }
 .table-content table td.product-remove i {
     color: #919191;

@@ -73,11 +73,9 @@
                     <div class="product-details-cati-tag mt-35">
                         <ul>
                             <li class="categories-title">Categories :</li>
-                            <li><a href="#">fashion</a></li>
-                            <li><a href="#">electronics</a></li>
-                            <li><a href="#">toys</a></li>
-                            <li><a href="#">food</a></li>
-                            <li><a href="#">jewellery</a></li>
+                            @foreach ($product->categories as $category)
+                                <li><a href="{{route('products.index', ['category_id' => $category->id])}}">{{$category->name}}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                     {{-- <div class="product-details-cati-tag mtb-10">

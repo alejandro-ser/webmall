@@ -53,7 +53,9 @@ class CartController extends Controller
 
     public function checkout()
     {
-        return view('cart.checkout');
+        $cartItems = Cart::session(auth()->id())->getContent();
+
+        return view('cart.checkout', compact('cartItems'));
     }
 
     public function applyCoupon()

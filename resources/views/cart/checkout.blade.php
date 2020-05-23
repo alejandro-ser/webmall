@@ -66,31 +66,25 @@
                                     </tr>							
                                 </thead>
                                 <tbody>
+                                    @foreach ($cartItems as $item)
                                     <tr class="cart_item">
                                         <td class="product-name">
-                                            Vestibulum suscipit <strong class="product-quantity"> × 1</strong>
+                                            {{ $item['name'] }} <strong class="product-quantity"> × {{ $item['quantity'] }}</strong>
                                         </td>
                                         <td class="product-total">
-                                            <span class="amount">£165.00</span>
+                                            <span class="amount">${{ Cart::session(auth()->id())->get($item['id'])->getPriceSum() }}</span>
                                         </td>
                                     </tr>
-                                    <tr class="cart_item">
-                                        <td class="product-name">
-                                            Vestibulum dictum magna	<strong class="product-quantity"> × 1</strong>
-                                        </td>
-                                        <td class="product-total">
-                                            <span class="amount">£50.00</span>
-                                        </td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                                 <tfoot>
                                     <tr class="cart-subtotal">
                                         <th>Cart Subtotal</th>
-                                        <td><span class="amount">£215.00</span></td>
+                                        <td><span class="amount">${{ Cart::session(auth()->id())->getSubTotal() }}</span></td>
                                     </tr>
                                     <tr class="order-total">
                                         <th>Order Total</th>
-                                        <td><strong><span class="amount">£215.00</span></strong>
+                                        <td><strong><span class="amount">${{ Cart::session(auth()->id())->getTotal() }}</span></strong>
                                         </td>
                                     </tr>								
                                 </tfoot>
@@ -115,21 +109,6 @@
                 </div>
             </form>
         </div>
-        {{-- <div class="row">
-            <div class="col-lg-6 col-md-6">
-                <div class="your-order floatright">
-                    <h3>Have a coupon?</h3>
-                    <div class="coupon-info">
-                        <form action="#">
-                            <p class="checkout-coupon">
-                                <input type="text" placeholder="Coupon code" />
-                                <input type="submit" value="Apply Coupon" />
-                            </p>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
     </div>
 </div>
 <!-- checkout-area end -->
